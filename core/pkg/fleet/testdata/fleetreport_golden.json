@@ -1,0 +1,53 @@
+{
+  "metadata": {
+    "generatedAt": "2026-08-14T09:30:00Z",
+    "kubescapeVersion": "v3.0.0",
+    "contexts": [
+      "prod",
+      "staging",
+      "dr"
+    ]
+  },
+  "clusters": [
+    {
+      "clusterID": "prod",
+      "context": "prod",
+      "status": "scanned",
+      "complianceScore": 72,
+      "coverage": {
+        "coverageScore": 88,
+        "evaluatedControls": 44,
+        "totalControls": 50,
+        "degraded": true
+      },
+      "duration": "4m12s"
+    },
+    {
+      "clusterID": "dr",
+      "context": "dr",
+      "status": "unreachable",
+      "error": "context deadline exceeded"
+    }
+  ],
+  "controlMatrix": {
+    "controls": [
+      {
+        "controlID": "C-0016",
+        "name": "Allow privilege escalation",
+        "severity": "High",
+        "byCluster": {
+          "prod": {
+            "status": "failed",
+            "failedResources": 18,
+            "complianceScore": 0
+          },
+          "staging": {
+            "status": "passed",
+            "failedResources": 0,
+            "complianceScore": 100
+          }
+        }
+      }
+    ]
+  }
+}
